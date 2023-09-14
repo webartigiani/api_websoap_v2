@@ -3,10 +3,11 @@
 use App\Http\Controllers\CatalogController;
 use App\Http\Controllers\SubscriptionController;
 use App\Http\Controllers\MultipleSubscriptionController;
+use App\Http\Controllers\EditionController;
+use App\Http\Controllers\TokenController;
 
-use Illuminate\Http\Request;
+// use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -19,7 +20,9 @@ use Illuminate\Support\Facades\Route;
 */
 
 
-Route::post('/catalogo', CatalogController::class);
-Route::delete('/iscrizione', [SubscriptionController::class, 'deleteSubscription']);
-Route::post('/iscrizione', [SubscriptionController::class, 'addSubscription']);
-Route::post('/iscrizionemultipla', MultipleSubscriptionController::class);
+Route::post('/login', [TokenController::class, 'login']);
+Route::post('/catalogo', CatalogController::class)->middleware('auth');
+Route::post('/modificaedizione', EditionController::class)->middleware('auth');
+// Route::delete('/iscrizione', [SubscriptionController::class, 'deleteSubscription'])->middleware('auth');
+Route::post('/iscrizione', [SubscriptionController::class, 'addSubscription'])->middleware('auth');
+Route::post('/iscrizionemultipla', MultipleSubscriptionController::class)->middleware('auth');

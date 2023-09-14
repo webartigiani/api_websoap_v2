@@ -3,20 +3,24 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Http\Requests\SubscriptionRequest;
-use App\Http\Requests\DeleteSubscriptionRequest;
+// use App\Http\Requests\SubscriptionRequest;
+// use App\Http\Requests\DeleteSubscriptionRequest;
+
+use App\Classes\connettore;
 
 
 class SubscriptionController extends Controller
 {
-    public function addSubscription(SubscriptionRequest $request)
+    public function addSubscription(Request $request)
     {
-        return response()->json([
-            "rc" => $request->getContent()
-        ]);
+        $payload = $request->getContent();
+        return json_decode(connettore::iscrizione($payload));
+        // return response()->json([
+        //     "rc" => $request->getContent()
+        // ]);
     }
 
-    public function deleteSubscription(DeleteSubscriptionRequest $request)
+    public function deleteSubscription(Request $request)
     {
         return response()->json([
             "rc" => "__OK__"
