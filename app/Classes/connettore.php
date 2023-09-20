@@ -28,14 +28,14 @@ class connettore
         return processa::catalogo($payload);
     }
 
-    public static function iscrizione($payload)
+    public static function iscrizione($payload, $metodo)
     {
-        return processa::iscrizione($payload);
+        return processa::iscrizione($payload, $metodo);
     }
 
-    public static function iscrizionemultipla($payload)
+    public static function iscrizionemultipla($payload, $metodo)
     {
-        return processa::iscrizionemultipla($payload);
+        return processa::iscrizionemultipla($payload, $metodo);
     }
 
     public static function modificaedizione($payload)

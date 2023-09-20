@@ -14,16 +14,12 @@ class SubscriptionController extends Controller
     public function addSubscription(Request $request)
     {
         $payload = $request->getContent();
-        return json_decode(connettore::iscrizione($payload));
-        // return response()->json([
-        //     "rc" => $request->getContent()
-        // ]);
+        return json_decode(connettore::iscrizione($payload, "iscrivi"));
     }
 
     public function deleteSubscription(Request $request)
     {
-        return response()->json([
-            "rc" => "__OK__"
-        ]);
+        $payload = $request->get('id');
+        return json_decode(connettore::iscrizione($payload, "disiscrivi"));
     }
 }

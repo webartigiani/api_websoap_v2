@@ -12,9 +12,15 @@ use App\Classes\connettore;
 
 class MultipleSubscriptionController extends Controller
 {
-    public function __invoke(Request $request)
+    public function addSubscriptions(Request $request)
     {
         $payload = $request->getContent();
-        return json_decode(connettore::iscrizionemultipla($payload));
+        return json_decode(connettore::iscrizionemultipla($payload, "iscrivi"));
+    }
+
+    public function deleteSubscriptions(Request $request)
+    {
+        $payload = $request->get('id');
+        return json_decode(connettore::iscrizionemultipla($payload, "disiscrivi"));
     }
 }

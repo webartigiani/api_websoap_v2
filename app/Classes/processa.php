@@ -6,7 +6,7 @@ namespace App\Classes;
 
 // al posto di questa riga ci sarà una chiamata db
 global $wsaccount;
-$wsaccount = (object)["username" => "zucchetticlient", "password" => "85rV!w2DSV_<Y2jX-VG(m4kK{2[k3|", "salt" => "pKNGC6WUs_cb3~G?Q-nu3<|m%84Cp!"];
+$wsaccount = (object)["username"=>"zucchetticlient", "password"=>"85rV!w2DSV_<Y2jX-VG(m4kK{2[k3|", "salt"=>"pKNGC6WUs_cb3~G?Q-nu3<|m%84Cp!"];
 
 class processa
 {
@@ -36,6 +36,7 @@ class processa
         $base64UrlSignature = str_replace(['+', '/', '='], ['-', '_', ''], base64_encode($tempsecret));
         return $base64UrlSignature == $secret;
     }
+
     public static function catalogo($payload)
     {
         if (rand() % 2 == 0) {
