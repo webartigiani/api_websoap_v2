@@ -1,6 +1,7 @@
 <?php
 namespace App\Classes;
 use App\Classes\processa;
+use App\Http\Controllers\SoapController;
 /*
 require_once("../zmlibs/connettore.php");
 connettore::catalogo($payload);
@@ -41,5 +42,10 @@ class connettore
     public static function modificaedizione($payload)
     {
         return processa::modificaedizione($payload);
+    }
+
+    public static function inviarisultato($payload)
+    {
+        return SoapController::soapTest($payload);
     }
 }

@@ -9,9 +9,11 @@
     "license": "MIT",
     "require": {
         "php": "^7.3",
+        "codedredd/laravel-soap": "^2.0",
         "fideloper/proxy": "^4.2",
         "fruitcake/laravel-cors": "^2.0",
         "guzzlehttp/guzzle": "^7.0.1",
+        "laminas/laminas-soap": "^2.9",
         "laravel/framework": "^8.0",
         "laravel/tinker": "^2.0"
     },
@@ -25,7 +27,10 @@
     "config": {
         "optimize-autoloader": true,
         "preferred-install": "dist",
-        "sort-packages": true
+        "sort-packages": true,
+        "allow-plugins": {
+            "php-http/discovery": true
+        }
     },
     "extra": {
         "laravel": {

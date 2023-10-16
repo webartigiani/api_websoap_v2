@@ -5,6 +5,7 @@ use App\Http\Controllers\SubscriptionController;
 use App\Http\Controllers\MultipleSubscriptionController;
 use App\Http\Controllers\EditionController;
 use App\Http\Controllers\TokenController;
+use App\Http\Controllers\SoapController;
 
 // use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -21,6 +22,7 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::post('/login', [TokenController::class, 'login']);
+Route::post('/soapTest', [SoapController::class, 'soapTest']);
 Route::post('/catalogo', CatalogController::class)->middleware('auth');
 Route::post('/modificaedizione', EditionController::class)->middleware('auth');
 Route::post('/iscrizione', [SubscriptionController::class, 'addSubscription'])->middleware('auth');
